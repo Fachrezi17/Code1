@@ -1,87 +1,42 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Algoritma Garis DDA dan Bresenham</title>
-<style>
-    canvas {
-        border: 1px solid black;
-    }
-</style>
+	<title>Tugas Grafika Komputer</title>
 </head>
+
 <body>
-<h2>Algoritma Garis DDA dan Bresenham</h2>
-<label for="x1">X1:</label>
-<input type="number" id="x1" value="50">
-<label for="y1">Y1:</label>
-<input type="number" id="y1" value="50">
-<label for="x2">X2:</label>
-<input type="number" id="x2" value="250">
-<label for="y2">Y2:</label>
-<input type="number" id="y2" value="250">
-<button onclick="drawDDA()">Draw with DDA</button>
-<button onclick="drawBresenham()">Draw with Bresenham</button>
-<canvas id="canvas" width="500" height="500"></canvas>
+	<header>
+		<center>
+			<h1>Tugas Grafika Komputer</h1>
+		</center>
+	</header>
 
-<script>
-function drawDDA() {
-    var canvas = document.getElementById('canvas');
-    var ctx = canvas.getContext('2d');
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    var x1 = parseInt(document.getElementById('x1').value);
-    var y1 = parseInt(document.getElementById('y1').value);
-    var x2 = parseInt(document.getElementById('x2').value);
-    var y2 = parseInt(document.getElementById('y2').value);
-    var dx = x2 - x1;
-    var dy = y2 - y1;
-    var steps = Math.max(Math.abs(dx), Math.abs(dy));
-    var xIncrement = dx / steps;
-    var yIncrement = dy / steps;
-    var x = x1;
-    var y = y1;
-    ctx.beginPath();
-    ctx.moveTo(x, y);
-    for (var i = 1; i <= steps; i++) {
-        x += xIncrement;
-        y += yIncrement;
-        ctx.lineTo(Math.round(x), Math.round(y));
-    }
-    ctx.stroke();
-}
+	<nav>
+		<ul>
+			<li><a href="">Beranda</a></li>
+			<li><a href="">About Me</a></li>
+		</ul>
+	</nav>
 
-function drawBresenham() {
-    var canvas = document.getElementById('canvas');
-    var ctx = canvas.getContext('2d');
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    var x1 = parseInt(document.getElementById('x1').value);
-    var y1 = parseInt(document.getElementById('y1').value);
-    var x2 = parseInt(document.getElementById('x2').value);
-    var y2 = parseInt(document.getElementById('y2').value);
-    var dx = Math.abs(x2 - x1);
-    var dy = Math.abs(y2 - y1);
-    var sx = (x1 < x2) ? 1 : -1;
-    var sy = (y1 < y2) ? 1 : -1;
-    var err = dx - dy;
-    var x = x1;
-    var y = y1;
-    ctx.beginPath();
-    ctx.moveTo(x, y);
-    while (x != x2 || y != y2) {
-        ctx.lineTo(x, y);
-        var e2 = 2 * err;
-        if (e2 > -dy) {
-            err -= dy;
-            x += sx;
-        }
-        if (e2 < dx) {
-            err += dx;
-            y += sy;
-        }
-    }
-    ctx.lineTo(x2, y2);
-    ctx.stroke();
-}
-</script>
+	<header>
+		<h2>About Me</h2>
+		<br>Nama: Fachrezi Putra Kori
+		<br>NPM: 2313025021
+		<br>Saya adalah mahasiswa Program Studi Pendidikan Teknologi Informasi 2023, kelas A.
+		<h3>Tugas/Kuis </h3>
+        <p>Tugas 1
+			<br><a href="https://shorturl.at/CGM26">PPT</a>
+			<br><a href="https://shorturl.at/fkJXY">Resume</a>
+			<br><a href="https://youtu.be/SMP8H_6cXXw?si=HB2dPOkmFMryKBPF">Video</a>
+		</p>
+
+	</header>
+
+
+	<footer>
+		<p>Hak Cipta © FACHREZI PUTRA KORI 2023 Grafika Komputer.</p>
+	</footer>
 </body>
+
 </html>
